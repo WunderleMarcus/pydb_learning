@@ -26,3 +26,4 @@ Dieses Projekt zeigt dir Schritt für Schritt:
 - Fehlerhandling
 """
 # pydb_learning
+![Hier eine schematische Übersicht der Anwendung](images/Diagramm-UML-Schema.png)
