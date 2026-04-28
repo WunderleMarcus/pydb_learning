@@ -92,18 +92,19 @@ def read_users():
 # ==========================================
 # UPDATE - DATEN ÄNDERN
 # ==========================================
-def update_user(user_id, new_name):
+def update_user(user_id, new_name, new_email):
     # -> Funktion zum Ändern eines bestehenden Benutzers
 
     print(f"\n[UPDATE] Benutzer {user_id} wird geändert...")
     # -> Info-Ausgabe mit dynamischer ID
 
     cursor.execute(
-        "UPDATE users SET name = ? WHERE id = ?",
-        (new_name, user_id)
+        "UPDATE users SET name = ?, email = ? WHERE id = ?",
+        (new_name, new_email, user_id)
     )
     # -> SQL:
     #    Ändert den Namen eines Users mit bestimmter ID
+    
 
     conn.commit()
     # -> Speichert Änderung dauerhaft
@@ -300,7 +301,8 @@ def menu():
             print("\n👉 UPDATE")
             user_id = int(input("ID: "))
             new_name = input("Neuer Name: ")
-            update_user(user_id, new_name)
+            new_email = input("Email: ")
+            update_user(user_id, new_name, new_email)
 
         elif choice == "4":
             print("\n👉 DELETE")
