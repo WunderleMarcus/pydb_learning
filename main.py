@@ -49,6 +49,7 @@ def create_user(name, age, email):
     print("\n[CREATE] Neuer Benutzer wird angelegt...")
     # -> Info für den Nutzer, dass ein INSERT passiert
 
+
     try:
         # -> Fehlerbehandlung, falls z. B. Datenbank-Regeln verletzt werden
 
@@ -103,7 +104,7 @@ def update_user(user_id, new_name, new_email):
         (new_name, new_email, user_id)
     )
     # -> SQL:
-    #    Ändert den Namen eines Users mit bestimmter ID
+    #    Ändert den Namen und email eines Users mit bestimmter ID
     
 
     conn.commit()
@@ -295,6 +296,7 @@ def menu():
             name = input("Name: ")
             age = int(input("Alter: "))
             email = input("Email: ")
+            email = email if email != "" else None
             create_user(name, age, email)
 
         elif choice == "3":
@@ -302,6 +304,7 @@ def menu():
             user_id = int(input("ID: "))
             new_name = input("Neuer Name: ")
             new_email = input("Email: ")
+            new_email = new_email if new_email != "" else None
             update_user(user_id, new_name, new_email)
 
         elif choice == "4":
