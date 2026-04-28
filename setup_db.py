@@ -19,8 +19,8 @@ cursor.execute("""
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    age INTEGER,
-    email TEXT UNIQUE
+    age INTEGER NOT NULL,
+    email TEXT UNIQUE NOT NULL
 )
 """)
 
